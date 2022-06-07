@@ -7,6 +7,6 @@
   - chrome
   - ffmpeg
 
-
- Youtube-DL: https://github.com/ytdl-org/youtube-dl/
- Eel: https://github.com/ChrisKnott/Eel
+ Links:
+  - Youtube-DL: https://github.com/ytdl-org/youtube-dl/
+  - Eel: https://github.com/ChrisKnott/Eel
