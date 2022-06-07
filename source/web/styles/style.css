@@ -1,0 +1,79 @@
+:root {
+
+    --color_gray: #3b3b3b;
+    --color_orange: orange;
+}
+
+body {
+
+    font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--color_gray);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+
+    display: flex;
+}
+
+section#console {
+
+    padding: 12px 0 0 5px;
+}
+
+input {
+
+    width: calc(100% - 8px);
+}
+
+.b {
+
+    font-weight: bold;
+}
+
+table#selected_options td,
+table#selected_options {
+
+    border: 1px solid white;
+    border-spacing: 0;
+    text-align: center;
+}
+
+table#selected_options td {
+
+    padding: 4px;
+    width: 40vw;
+    max-width: 40vw;
+    word-wrap: break-word;
+}
+
+input,
+select,
+button,
+textarea {
+
+    background-color: var(--color_gray);
+    color: white;
+    border-color: var(--color_orange);
+}
+
+section#console {
+
+    display: flex;
+    flex-direction: column;
+}
+
+button#download {
+
+    text-align: center;
+    height: 80px;
+}
+
+footer {
+
+    align-self: center;
+    text-align: center;
+    margin-top: -50px;
+}

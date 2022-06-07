@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube DL - Nikimgo UI</title>
+    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <script src="/eel.js"></script>
+    <script src="../scripts/index.js"></script>
+
+</head>
+
+<body>
+    <!--
+    Works <br>
+
+    <button id="przycisk" onclick="eel.send_hello()">KLIK!</button><br><br>
+    -->
+    <main>
+        <section class="main_page">
+            <fieldset>
+                <legend class="b">Target link:</legend>
+                <input type="text" id="video_link">
+                <button onclick="change_link()">Select link</button>
+            </fieldset>
+
+            <fieldset>
+                <legend class="b">Format:</legend>
+                <select name="format" id="format">
+                    <option value="bestvideo+bestaudio/best">video + audio (best quality) (default)</option>
+                    <option value="bestvideo">only video (best quality)</option>
+                    <option value="bestaudio">only audio (best quality)</option>
+                </select><br />
+                <button onclick="change_format()">Select format</button>
+            </fieldset>
+
+            <fieldset>
+                <legend class="b">Download directory:</legend>
+                <input type="text" id="directory">
+                <button onclick="change_directory()">Select directory</button>
+                <button onclick="save_directory()">Save directory</button>
+            </fieldset>
+
+            <fieldset>
+                <legend class="b">Selected options:</legend>
+                <table id="selected_options">
+                    <tr>
+                        <td>
+                            <p>Target link:</p>
+                        </td>
+                        <td>
+                            <p id="option_link"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Format:</p>
+                        </td>
+                        <td>
+                            <p id="option_format">video + audio (best quality) (default)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Download directory:</p>
+                        </td>
+                        <td>
+                            <p id="option_directory"> ../ (default)</p>
+                        </td>
+                    </tr>
+                </table>
+
+            </fieldset>
+
+
+        </section>
+        <section id="console">
+
+            <textarea id="output" rows="30" cols="70" disabled placeholder="Output:"></textarea>
+            <button onclick="download()" id="download">Download</button><br /><br />
+
+            <footer>
+                <p>Software made by Nikimgo <br /> Software version: 1.0</p>
+            </footer>
+        </section>
+    </main>
+
+
+</body>
+
+</html>
