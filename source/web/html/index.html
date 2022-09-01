@@ -14,18 +14,17 @@
 
 </head>
 
-<body>
+<body onload="load_prefs()">
     <!--
     Works <br>
 
     <button id="przycisk" onclick="eel.send_hello()">KLIK!</button><br><br>
     -->
     <main>
-        <section class="main_page">
+        <section id="main_page">
             <fieldset>
-                <legend class="b">Target link:</legend>
-                <input type="text" id="video_link">
-                <button onclick="change_link()">Select link</button>
+                <legend class="b">Target links:</legend>
+                <textarea id="video_link" rows="7" cols="46"></textarea>
             </fieldset>
 
             <fieldset>
@@ -34,61 +33,28 @@
                     <option value="bestvideo+bestaudio/best">video + audio (best quality) (default)</option>
                     <option value="bestvideo">only video (best quality)</option>
                     <option value="bestaudio">only audio (best quality)</option>
-                </select><br />
-                <button onclick="change_format()">Select format</button>
+                </select>
             </fieldset>
 
             <fieldset>
                 <legend class="b">Download directory:</legend>
                 <input type="text" id="directory">
-                <button onclick="change_directory()">Select directory</button>
-                <button onclick="save_directory()">Save directory</button>
-            </fieldset>
+                <button onclick="save_directory()">Save as default</button>
+            </fieldset><br />
 
-            <fieldset>
-                <legend class="b">Selected options:</legend>
-                <table id="selected_options">
-                    <tr>
-                        <td>
-                            <p>Target link:</p>
-                        </td>
-                        <td>
-                            <p id="option_link"></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Format:</p>
-                        </td>
-                        <td>
-                            <p id="option_format">video + audio (best quality) (default)</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Download directory:</p>
-                        </td>
-                        <td>
-                            <p id="option_directory"> ../ (default)</p>
-                        </td>
-                    </tr>
-                </table>
-
-            </fieldset>
-
+            <button onclick="download()" id="download">Download</button><br /><br />
 
         </section>
         <section id="console">
 
-            <textarea id="output" rows="30" cols="70" disabled placeholder="Output:"></textarea>
-            <button onclick="download()" id="download">Download</button><br /><br />
+            <textarea id="output" rows="27" cols="60" disabled placeholder="Output:"></textarea>
 
-            <footer>
-                <p>Software made by Nikimgo <br /> Software version: 1.0</p>
-            </footer>
         </section>
-    </main>
 
+    </main>
+    <footer>
+        <p>Software made by Nikimgo <br /> version: 2.1</p>
+    </footer>
 
 </body>
 

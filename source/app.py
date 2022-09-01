@@ -2,6 +2,7 @@ import eel
 from ytdl import Ytdl
 from io import StringIO 
 import os
+import json
 
 '''
 class Capturing(list):
@@ -43,31 +44,41 @@ def save_prefs(setting, value):
             
             if os.path.isdir(value) == False: return 0
     
-    settings = {'directory':None}
+    settings = {}
     
     try:
         
-        with open('settings', 'r') as file:
+        with open('settings.json', 'r') as file:
             
-            for line in file:
-                
-                line = line.strip().split()
-                
-                settings[line[0]] = line[1]
+            settings = json.load(file)
+            print(f'settings loaded: {settings}')
     except FileNotFoundError:
         
         print('settings file doesn\'t exist');
     finally:
         
-        with open('settings', 'w') as file:
-            
-            settings[setting] = value
-            
-            for key in settings:
-                
-                file.write(f'{key} {settings[key]}')
-                
+        settings[setting] = value
+        print(f'settings saved: {settings}')
         
+        with open('settings.json', 'w') as file:
+            
+            json.dump(settings, file)
+                
+@eel.expose
+def load_prefs():
+    
+    try:
+        
+        with open('settings.json', 'r') as file:
+            
+            settings = json.load(file)
+            print(f'settings loaded: {settings}')
+            
+            return settings
+    except FileNotFoundError:
+        
+        print('settings file doesn\'t exist');
+        return 0
     
 @eel.expose
 def change_link(link):
@@ -108,9 +119,13 @@ def download_video():
     #ytdl.change_option('output', 'F:\Programy\Youtube-DLG-Downloads')
     try:
         ytdl.change_option('logger', MyLogger())
-        ytdl.download_video()
+        
+        for link in ytdl.link:
+            
+            eel.logs_from_python(f'\nLink: {link}')
+            ytdl.download_video(link)
     except:
         eel.logs_from_python('Error: Something went wrong, check if all required options are set and try again')
 
 eel.init('web')
-eel.start('html\\index.html', size=(1200, 700))
+eel.start('html\\index.html', size=(900, 600))

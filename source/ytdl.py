@@ -54,9 +54,9 @@ class Ytdl:
                 self.ydl_opts['logger'] = value
                 print(f'changed logger to {value}')
                 
-    def download_video(self):
+    def download_video(self, link):
         
         with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-            ydl.download([self.link])
+            ydl.download([link])
         
         
